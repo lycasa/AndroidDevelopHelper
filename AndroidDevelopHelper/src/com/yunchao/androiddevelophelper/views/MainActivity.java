@@ -13,8 +13,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+
+import com.baidu.frontia.Frontia;
 import com.yunchao.androiddevelophelper.R;
 import com.yunchao.androiddevelophelper.adapters.Main_ListViewAdapter;
+import com.yunchao.androiddevelophelper.global.Conf;
 
 public class MainActivity extends Activity implements OnClickListener{
 	private ListView lv_androidutils_text;
@@ -27,6 +30,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_layout);
+		Frontia.init(this.getApplicationContext(), Conf.APIKEY);
 		mContext=this;
 		initview();
 		initEvent();
@@ -82,7 +86,7 @@ public class MainActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_moreinfo:
-			Intent toQQ_login_main=new Intent(this, QQ_login_mainactivity.class);
+			Intent toQQ_login_main=new Intent(this, Login_mainActivity.class);
 			startActivity(toQQ_login_main);
 			break;
 
