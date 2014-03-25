@@ -32,9 +32,9 @@ public class MainActivity extends Activity implements OnClickListener{
 		setContentView(R.layout.main_layout);
 		Frontia.init(this.getApplicationContext(), Conf.APIKEY);
 		mContext=this;
-		initview();
-		initEvent();
-		initData();
+		//initview();
+		//initEvent();
+		//initData();
 	}
 	private void initData() {
 		mdata.add("jhgkfkhgjfklhjfkhjfkljh");
