@@ -48,6 +48,10 @@
             android:name=".views.Login_mainActivity"
              >
         </activity>
+          <activity
+            android:name=".views.ListView_Show_Activity"
+             >
+        </activity>
         
     </application>
 

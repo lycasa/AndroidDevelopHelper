@@ -2,11 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl_main_listview_item"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="50dp" >
     
 <TextView 
     android:id="@+id/tv_main_listview_item"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" 
+    android:layout_height="50dp" 
+    android:gravity="center_vertical"
     />
 </RelativeLayout>
