@@ -22,4 +22,9 @@ public class Conf {
     //statistics demo
     public static final String eventId = "1";//提醒
     public static final String reportId = "fd4278e8f6";
+    
+    
+    
+    
+    public static final String DATA_FILE_PATH = "/home/andev4/environment/data/data";
 }
