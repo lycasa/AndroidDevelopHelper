@@ -26,5 +26,5 @@ public class Conf {
     
     
     
-    public static final String DATA_FILE_PATH = "/home/andev4/environment/data/data";
+    public static final String DATA_FILE_PATH = "/mnt/ext_sdcard/data";
 }

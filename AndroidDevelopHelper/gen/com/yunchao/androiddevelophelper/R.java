@@ -56,7 +56,8 @@ public final class R {
         public static final int login_main=0x7f030006;
         public static final int main_layout=0x7f030007;
         public static final int main_listviewitem=0x7f030008;
-        public static final int scroll_main_layout=0x7f030009;
+        public static final int other_activity_show=0x7f030009;
+        public static final int scroll_main_layout=0x7f03000a;
     }
     public static final class string {
         public static final int androidutils=0x7f040001;
