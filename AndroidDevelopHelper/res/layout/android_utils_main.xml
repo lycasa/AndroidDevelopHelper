@@ -3,10 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-      <ListView 
+      <com.yunchao.androiddevelophelper.customviews.AbPullListView 
        android:id="@+id/lv_androidutils_text"
        android:layout_width="match_parent"
     android:layout_height="match_parent"
-       ></ListView>
+       ></com.yunchao.androiddevelophelper.customviews.AbPullListView>
+<!--       <ListView 
+       android:id="@+id/lv_androidutils_text"
+       android:layout_width="match_parent"
+    android:layout_height="match_parent"
+       ></ListView> -->
 
 </LinearLayout>

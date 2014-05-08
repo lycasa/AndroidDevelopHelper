@@ -1,10 +1,8 @@
 package com.yunchao.androiddevelophelper.views;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,19 +22,23 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.baidu.frontia.Frontia;
 import com.yunchao.androiddevelophelper.R;
 import com.yunchao.androiddevelophelper.adapters.Main_ListViewAdapter;
 import com.yunchao.androiddevelophelper.adapters.ViewPagerAdapter;
+import com.yunchao.androiddevelophelper.customviews.AbPullListView;
+import com.yunchao.androiddevelophelper.demos.light.LightActivity;
+import com.yunchao.androiddevelophelper.demos.shake.ShakeActivity;
+import com.yunchao.androiddevelophelper.demos.tts.TTSDemoActivity;
+import com.yunchao.androiddevelophelper.demos.zxing.ZXingMainActivity;
+import com.yunchao.androiddevelophelper.games.game2048.Game2048MainActivity;
 import com.yunchao.androiddevelophelper.global.Conf;
-import com.yunchao.androiddevelophelper.local.ReadFileAsyncTask;
+import com.yunchao.androiddevelophelper.listener.AbOnListViewListener;
 
 public class MainActivity extends Activity implements OnClickListener,
 		OnItemClickListener {
-	private ListView lv_androidutils_text;
+	private AbPullListView lv_androidutils_text;
 	private Button btn_androidutils, btn_2, btn_3, btn_moreinfo;
 	private List<String> mdata = new ArrayList<String>();
 	private Context mContext;
@@ -44,10 +46,11 @@ public class MainActivity extends Activity implements OnClickListener,
 	private LinearLayout middle_content_container;
 	private LayoutInflater mlayoutinflater;
 	private PluginScrollView mPluginScrollView;
-	private ViewPager mViewPager;
+	private ViewPager mViewPager;  
 	private ViewPagerAdapter viewPagerAdapter;
 	List<View> testList;
 	private View android_utils_main, button2layout, button3layout, login_main;
+	private final static String TAG = "MainActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,12 @@ public class MainActivity extends Activity implements OnClickListener,
 				R.layout.android_utils_main, null);
 	/*	ReadFileAsyncTask task = new ReadFileAsyncTask(MainActivity.this);
 		task.execute();*/
-		mdata=getFileData();
+		try {
+			mdata=getFileData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//initData();
 		initview();
 		button2layout = mlayoutinflater.inflate(R.layout.button2layout, null);
@@ -93,10 +101,6 @@ public class MainActivity extends Activity implements OnClickListener,
 		testList.add(button2layout);
 		testList.add(button3layout);
 		testList.add(button2layout);
-		testList.add(button3layout);
-		testList.add(button2layout);
-		testList.add(button3layout);
-		testList.add(button2layout);
 		testList.add(login_main);
 	}
 	
@@ -110,7 +114,7 @@ public class MainActivity extends Activity implements OnClickListener,
 	}
 
 	private void initview() {
-		lv_androidutils_text = (ListView) android_utils_main
+		lv_androidutils_text = (AbPullListView) android_utils_main
 				.findViewById(R.id.lv_androidutils_text);
 		mListViewAdapter = new Main_ListViewAdapter(mdata, mContext);
 		lv_androidutils_text.setAdapter(mListViewAdapter);
@@ -119,6 +123,46 @@ public class MainActivity extends Activity implements OnClickListener,
 		// btn_3=(Button) findViewById(R.id.btn_3);
 		// btn_moreinfo=(Button) findViewById(R.id.btn_moreinfo);
 		// btn_androidutils=(Button) findViewById(R.id.btn_androidutils);
+		//打开关闭下拉刷新加载更多功能
+		lv_androidutils_text.setPullRefreshEnable(true); 
+		lv_androidutils_text.setPullLoadEnable(true);
+		  //设置进度条的样式
+		lv_androidutils_text.getHeaderView().setHeaderProgressBarDrawable(this.getResources().getDrawable(R.drawable.progress_circular));
+		lv_androidutils_text.getFooterView().setFooterProgressBarDrawable(this.getResources().getDrawable(R.drawable.progress_circular));
+		lv_androidutils_text.setAbOnListViewListener(new AbOnListViewListener() {
+			
+			@Override
+			public void onRefresh() {
+				Log.d(TAG, "==onRefresh==");
+				removeProgressDialog();
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				//Toast.makeText(mContext, "刷新成功！", Toast.LENGTH_SHORT).show();
+				lv_androidutils_text.stopRefresh();
+				
+			}
+			
+			@Override
+			public void onLoadMore() {
+				Log.d(TAG, "==onLoadMore==");
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				//Toast.makeText(mContext, "加载更多成功！", Toast.LENGTH_SHORT).show();
+				lv_androidutils_text.stopLoadMore();
+			}
+		});
+		
+		
+		
+		
 	}
 
 	private void initEvent() {
@@ -127,7 +171,13 @@ public class MainActivity extends Activity implements OnClickListener,
 		btn_moreinfo.setOnClickListener(this);
 		btn_androidutils.setOnClickListener(this);
 	}
-
+	/**
+	 * 描述：移除进度框.
+	 */
+	public void removeProgressDialog() {
+		removeDialog(0);
+    }
+	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
@@ -172,11 +222,41 @@ public class MainActivity extends Activity implements OnClickListener,
 		String str = lv_androidutils_text.getAdapter().getItem(position)
 				.toString();
 		switch (position) {
-		case 0:
+		case 1:
+			Intent ttsintent = new Intent(this, TTSDemoActivity.class);
+			ttsintent.putExtra("str", str);
+			startActivity(ttsintent);
+			break;
+		case 2:
+			Intent zxingintent = new Intent(this, ZXingMainActivity.class);
+			zxingintent.putExtra("str", str);
+			startActivity(zxingintent);
+			break;
+		case 3:
+			Intent shakeintent = new Intent(this, ShakeActivity.class);
+			shakeintent.putExtra("str", str);
+			startActivity(shakeintent);
+			break;
+		case 4:
+			Intent game2048intent = new Intent(this, Game2048MainActivity.class);
+			game2048intent.putExtra("str", str);
+			startActivity(game2048intent);
+			break;
+		case 5:
+			Intent lightintent = new Intent(this, LightActivity.class);
+			lightintent.putExtra("str", str);
+			startActivity(lightintent);
+			break;
+		case 6:
 			Intent mintent = new Intent(this, ListView_Show_Activity.class);
 			mintent.putExtra("str", str);
 			startActivity(mintent);
 			break;
+		/*case 2:
+			Intent wintent = new Intent(this, ListView_Show_Activity.class);
+			mintent.putExtra("str", str);
+			startActivity(mintent);
+			break;*/
 
 		default:
 			Intent nintent = new Intent(this, Other_Activity_Show.class);
@@ -241,12 +321,16 @@ public class MainActivity extends Activity implements OnClickListener,
 	    }
 	};
 	protected void onDestroy() {
+		super.onDestroy();
 		unregisterReceiver(rBroadcastReceiver);
 	};
 	
-	public List<String> getFileData(){
+	public List<String> getFileData() throws IOException{
 		ArrayList<String> info = null;
-		File file=new File(Conf.DATA_FILE_PATH);
+		 InputStream abpath = getClass().getResourceAsStream("/assets/data");
+		 String path = new String(InputStreamToByte(abpath));
+		//File file=new File(Conf.DATA_FILE_PATH);
+		/*File file=new File(path);
 		if (file.exists() && file.isFile()) {
 			try {
 				String buffer = "";
@@ -261,7 +345,22 @@ public class MainActivity extends Activity implements OnClickListener,
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}*/
+		String paths[] = path.split("\n");
+		info = new ArrayList<String>();
+		for(int i=0;i<paths.length;i++){
+			info.add(paths[i]);
 		}
 		return info;
 	}
+    public byte[] InputStreamToByte(InputStream is) throws IOException {
+        ByteArrayOutputStream bytestream = new ByteArrayOutputStream();
+        int ch;
+        while ((ch = is.read()) != -1) {
+            bytestream.write(ch);
+        }
+        byte imgdata[] = bytestream.toByteArray();
+        bytestream.close();
+        return imgdata;
+    }
 }
