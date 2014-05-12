@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.yunchao.androiddevelophelper.R;
+
 public class HuihuaAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<HuiHua> list = new ArrayList<HuiHua>();

@@ -31,6 +31,7 @@ import com.yunchao.androiddevelophelper.customviews.AbPullListView;
 import com.yunchao.androiddevelophelper.demos.light.LightActivity;
 import com.yunchao.androiddevelophelper.demos.shake.ShakeActivity;
 import com.yunchao.androiddevelophelper.demos.tts.TTSDemoActivity;
+import com.yunchao.androiddevelophelper.demos.weixin.IndexActivity;
 import com.yunchao.androiddevelophelper.demos.zxing.ZXingMainActivity;
 import com.yunchao.androiddevelophelper.games.game2048.Game2048MainActivity;
 import com.yunchao.androiddevelophelper.global.Conf;
@@ -248,9 +249,8 @@ public class MainActivity extends Activity implements OnClickListener,
 			startActivity(lightintent);
 			break;
 		case 6:
-			Intent mintent = new Intent(this, ListView_Show_Activity.class);
-			mintent.putExtra("str", str);
-			startActivity(mintent);
+			Intent weixinintent = new Intent(this, IndexActivity.class);
+			startActivity(weixinintent);
 			break;
 		/*case 2:
 			Intent wintent = new Intent(this, ListView_Show_Activity.class);

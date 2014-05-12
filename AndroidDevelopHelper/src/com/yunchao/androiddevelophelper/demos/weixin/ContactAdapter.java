@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.yunchao.androiddevelophelper.R;
+
 public class ContactAdapter extends BaseAdapter {
 	private Context context;
 	private ArrayList<ContactP> list = new ArrayList<ContactP>();

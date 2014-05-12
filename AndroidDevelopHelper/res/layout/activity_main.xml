@@ -1,138 +1,84 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-
+<?xml version="1.0" encoding="utf-8"?>    
+<RelativeLayout 
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:background="@color/white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="3dp" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/tv_Goal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="3dp"
-                android:padding="3dp"
-                android:gravity="center"
-                android:background="@drawable/orange_button"
-                android:text="2048"
-                android:textSize="40sp" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/score_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="5dp"
-                android:background="@drawable/gray_button"
-                android:gravity="center"
-                android:text="Scroe"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/scroe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/score_title"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="5dp"
-                android:background="@drawable/light_orange_button"
-                android:gravity="center"
-                android:text="10000"
-                android:textSize="15sp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/record_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="5dp"
-                android:background="@drawable/gray_button"
-                android:gravity="center"
-                android:text="Record"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/record"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/record_title"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="5dp"
-                android:background="@drawable/light_orange_button"
-                android:gravity="center"
-                android:text="20000"
-                android:textSize="15sp" />
-        </RelativeLayout>
+        android:id="@+id/llayout" 
+        android:orientation="vertical"
+        android:layout_width="match_parent" 
+    	android:layout_height="wrap_content" 
+    	android:layout_alignParentTop="true" 
+        >
+        <include layout="@layout/top1"/>
+        <include layout="@layout/top2"/>
     </LinearLayout>
+    <com.yunchao.androiddevelophelper.demos.weixin.MyScrollLayout    
+	  xmlns:android="http://schemas.android.com/apk/res/android"    
+	  android:id="@+id/ScrollLayout"    
+	  android:layout_width="fill_parent"    
+	  android:layout_below="@id/llayout"
+	  android:layout_alignParentBottom="true" 
+	  android:layout_height="fill_parent">    
+  
+ 	  <com.yunchao.androiddevelophelper.demos.weixin.MyFrame
+ 	    android:background="@color/white"
+	  	android:layout_width="fill_parent"    
+	  	android:layout_height="wrap_content">
+	  	 <!-- 
+ 	      <com.example.isweixin.SetScroll 
+ 	          android:layout_width="fill_parent"    
+	  			android:layout_height="wrap_content"
+	  			android:scrollbars="vertical"
+	  			android:scrollbarStyle="insideInset"
+ 	          >
+        	<include layout="@layout/liaotian"/>
+        	</com.example.isweixin.SetScroll>
+        	-->
+ 	     		 <ListView
+                    android:id="@+id/listView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:divider="@drawable/reader_item_divider"
+                    android:listSelector="@android:color/transparent"
+                     >
+                </ListView>
+	  </com.yunchao.androiddevelophelper.demos.weixin.MyFrame>   
+      
+	  <FrameLayout    
+	    android:background="@color/white"
+	  	android:layout_width="fill_parent"    
+	  	android:layout_height="wrap_content">
+ 	     		 <include layout="@layout/faxian"/>
+	  </FrameLayout>    
+	      
+	  <FrameLayout
+	    android:background="@color/white"
+	  	android:layout_width="fill_parent"    
+	  	android:layout_height="wrap_content">     
+	  	<!--  
+	        <com.example.isweixin.SetScroll
+ 	          android:layout_width="fill_parent"    
+	  			android:layout_height="wrap_content"
+	  			android:scrollbarStyle="insideInset"
+	  			android:scrollbars="vertical"
+ 	          >
+	   			 <include layout="@layout/tongxunlu"/>
+	   	    </com.example.isweixin.SetScroll>
+	   	    -->
+	   	    <ListView
+                    android:id="@+id/listView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cacheColorHint="@android:color/transparent"
+                    android:divider="@drawable/reader_item_divider"
+                    android:listSelector="@android:color/transparent" >
+                </ListView>
+	   	    
+	  </FrameLayout>    
+	</com.yunchao.androiddevelophelper.demos.weixin.MyScrollLayout> 
+</RelativeLayout>
 
-    <FrameLayout
-        android:id="@+id/fff"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
-
-    </FrameLayout>
-
-    <LinearLayout
-        style="?android:attr/buttonBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="3dp" >
-
-        <Button
-            android:id="@+id/btn_revert"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/blue_button"
-            android:text="Revert" />
-
-        <Button
-            android:id="@+id/btn_restart"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/blue_button"
-            android:text="Restart" />
-
-        <Button
-            android:id="@+id/btn_option"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:background="@drawable/blue_button"
-            android:text="Options" />
-    </LinearLayout>
-
-</LinearLayout>

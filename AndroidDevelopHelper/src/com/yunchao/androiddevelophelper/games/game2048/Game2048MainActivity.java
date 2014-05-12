@@ -38,7 +38,7 @@ public class Game2048MainActivity extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
-	setContentView(R.layout.activity_main);
+	setContentView(R.layout.activity_main1);
 	// 初始化View
 	initView();
 	animLayer = new AnimationLayer(this);

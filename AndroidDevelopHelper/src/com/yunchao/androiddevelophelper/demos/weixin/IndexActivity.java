@@ -3,14 +3,14 @@ package com.yunchao.androiddevelophelper.demos.weixin;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.tencent.weibo.oauthv2.OAuthV2;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
+
+import com.tencent.weibo.oauthv2.OAuthV2;
+import com.yunchao.androiddevelophelper.R;
 
 public class IndexActivity extends Activity {
 	private String app_key = "801416605"; // ��ȡ��appkey

@@ -14,6 +14,7 @@ import android.webkit.WebViewClient;
 
 import com.tencent.weibo.oauthv2.OAuthV2;
 import com.tencent.weibo.oauthv2.OAuthV2Client;
+import com.yunchao.androiddevelophelper.R;
 
 
 /**

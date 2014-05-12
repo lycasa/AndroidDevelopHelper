@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="信息选择" >
+        <CheckBoxPreference
+            android:key="threeDay"
+            android:summary="今明后三天的天气预报，如果不选，则只有当天的天气"
+            android:title="三天预报" />
+        <CheckBoxPreference
+            android:key="cityInfo"
+            android:summary="关于当前城市的简要介绍"
+            android:title="城市简介" />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,8 +1,6 @@
 package com.yunchao.androiddevelophelper.demos.weixin;
 
 
-import com.tencent.weibo.oauthv2.OAuthV2;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
@@ -14,6 +12,9 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.PopupWindow;
+
+import com.tencent.weibo.oauthv2.OAuthV2;
+import com.yunchao.androiddevelophelper.R;
 
 public class SelectPicPopupWindow extends PopupWindow {
 

@@ -15,4 +15,26 @@
     <string name="action_settings">Settings</string>
     <!-- LIGHT -->
     <string name="again_exit">Press again to exit</string>
+    <!-- weixin -->
+    <string name="hello_world">Hello world!</string>
+    <!-- weather -->
+    <string name="app_name">天气</string>
+    <string name="chooseCity_name">选择城市</string>
+    <string name="setup_name">设置</string>
+    <string name="searchBn">查   询</string>
+    <string name="saveBn">保   存</string>
+    <string name="cancelBn">取   消</string>
+    <string name="chooseCityBn">选择城市</string>
+    <string name="province">省 份</string>
+    <string name="city">城 市</string>
+    <string name="currentCity">当前城市:</string>
+    <string name="setupMenu">设  置</string>
+    <string name="exitMenu">退  出</string>
+    <string name="notice">注  意</string>
+    <string name="r_u_exit">确定退出吗？</string>
+    <string name="yes">确  定</string>
+    <string name="no">取  消</string>
+    <string name="choose_city">请选择城市！</string>
+        
+    
 </resources>
