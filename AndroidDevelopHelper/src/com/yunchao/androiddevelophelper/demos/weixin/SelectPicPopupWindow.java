@@ -31,31 +31,31 @@ public class SelectPicPopupWindow extends PopupWindow {
 		int h = context.getWindowManager().getDefaultDisplay().getHeight();
 		int w = context.getWindowManager().getDefaultDisplay().getWidth();
 		btn_cancel = (Button) mMenuView.findViewById(R.id.btn_cancel);
-		//ȡ��ť
+		//取消按钮
 		btn_cancel.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
-				//��ٵ�����
+				//销毁弹出框
 				SaveDate.saveDate(context, new OAuthV2()); 
 				context.finish();
 			}
 		});
-		//���ð�ť����
-		//����SelectPicPopupWindow��View
+		//设置按钮监听
+		//设置SelectPicPopupWindow的View
 		this.setContentView(mMenuView);
-		//����SelectPicPopupWindow��������Ŀ�
+		//设置SelectPicPopupWindow弹出窗体的宽
 		this.setWidth(w/2+50);
-		//����SelectPicPopupWindow��������ĸ�
+		//设置SelectPicPopupWindow弹出窗体的高
 		this.setHeight(LayoutParams.WRAP_CONTENT);
-		//����SelectPicPopupWindow��������ɵ��
+		//设置SelectPicPopupWindow弹出窗体可点击
 		this.setFocusable(true);
-		//����SelectPicPopupWindow�������嶯��Ч��
+		//设置SelectPicPopupWindow弹出窗体动画效果
 		this.setAnimationStyle(R.style.mystyle);
-		//ʵ��һ��ColorDrawable��ɫΪ��͸��
+		//实例化一个ColorDrawable颜色为半透明
 		ColorDrawable dw = new ColorDrawable(0000000000);
-		//����SelectPicPopupWindow��������ı���
+		//设置SelectPicPopupWindow弹出窗体的背景
 		this.setBackgroundDrawable(dw);
-		//mMenuView���OnTouchListener�����жϻ�ȡ����λ�������ѡ�����������ٵ�����
+		//mMenuView添加OnTouchListener监听判断获取触屏位置如果在选择框外面则销毁弹出框
 		mMenuView.setOnTouchListener(new OnTouchListener() {
 			
 			public boolean onTouch(View v, MotionEvent event) {

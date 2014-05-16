@@ -3,8 +3,6 @@ package com.yunchao.androiddevelophelper.demos.weixin;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.GestureDetector;
-import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
@@ -26,7 +24,7 @@ public class SetScroll extends ScrollView {
 
 		@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
-			System.out.println("--------���ڹ���-------");
+			System.out.println("--------正在滚动-------");
 			
 			float x = ev.getX();
 			float y = ev.getY();
@@ -68,7 +66,7 @@ public class SetScroll extends ScrollView {
 //			// return true;
 //			// }
 //			// return false;
-//			System.out.println("--------���ڹ���-------");
+//			System.out.println("--------正在滚动-------");
 //			double angle = Math.atan2(Math.abs(distanceY), Math.abs(distanceX));
 ////			System.out.println( angle--   + (180 * angle) / Math.PI);
 //			if ((180 * angle) / Math.PI < 180) {

@@ -38,7 +38,7 @@ public class GameItem extends FrameLayout {
 	setNum(cardShowNum);
 	tvNum.setTextSize(30);
 	tvNum.setGravity(Gravity.CENTER);
-	params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+	params = new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT);
 	params.setMargins(5, 5, 5, 5);
 	addView(tvNum, params);
     }

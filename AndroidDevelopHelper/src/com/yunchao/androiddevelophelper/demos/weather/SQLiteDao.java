@@ -22,9 +22,9 @@ public class SQLiteDao {
 		if (cursor.moveToFirst()) {
 			city = cursor.getString(0);
 		} else {
-			city = "����";
+			city = "上海";
 		}
-		// ����ر�
+		// 必须关闭
 		cursor.close();
 		SQLiteUtils.close();
 		return city;

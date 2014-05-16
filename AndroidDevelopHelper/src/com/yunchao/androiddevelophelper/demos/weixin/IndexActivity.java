@@ -13,8 +13,8 @@ import com.tencent.weibo.oauthv2.OAuthV2;
 import com.yunchao.androiddevelophelper.R;
 
 public class IndexActivity extends Activity {
-	private String app_key = "801416605"; // ��ȡ��appkey
-	private String clientSecret = "afb3b09cc0ae263d8d992c141b71973a"; // ע��Ӧ�û�ȡ
+	private String app_key = "801416605"; // 获取的appkey
+	private String clientSecret = "afb3b09cc0ae263d8d992c141b71973a"; // 注册应用获取
 	private String app_uri = "http://www.xiaoxiu.com";
 	public  static OAuthV2 oAuth;
 	private int index = 0;
@@ -50,7 +50,7 @@ public class IndexActivity extends Activity {
 		},1500,1000);
 	}
 	
-	//������������Ѷ΢��QQ��Ȩ
+	//这里做的是腾讯微博QQ授权
 	private void txfenxiang(){
 		oAuth = SaveDate.getDate(IndexActivity.this);
 		if("".equals(oAuth.getAccessToken())){
@@ -70,14 +70,14 @@ public class IndexActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == 2) {
 			if (resultCode == 2) {
-				/*******�˴�û��ִ�У�������������������������***********/
+				/*******此处没有执行！！！！！！！！！！！！！***********/
 				oAuth = (OAuthV2) data.getExtras().getSerializable("oauth");
 				SaveDate.saveDate(IndexActivity.this, oAuth);
-				// ����API��ȡ�û���Ϣ
+				// 调用API获取用户信息
 //				UserAPI userAPI = new UserAPI(OAuthConstants.OAUTH_VERSION_2_A);
 //				String response = null;
 //				try {
-//					response = userAPI.info(oAuth, "json");// ��ȡ�û���Ϣ
+//					response = userAPI.info(oAuth, "json");// 获取用户信息
 //					Log.i(TAG,"qq::"+response);
 //				} catch (Exception e) {
 //					e.printStackTrace();

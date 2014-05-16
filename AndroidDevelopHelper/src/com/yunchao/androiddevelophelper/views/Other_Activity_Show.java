@@ -1,11 +1,11 @@
 package com.yunchao.androiddevelophelper.views;
 
-import com.yunchao.androiddevelophelper.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.yunchao.androiddevelophelper.R;
 
 public class Other_Activity_Show extends Activity {
 	private TextView textView1;

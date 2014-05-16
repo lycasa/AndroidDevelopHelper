@@ -377,7 +377,7 @@ public class AbDateUtil {
 			Calendar c = new GregorianCalendar();
 			SimpleDateFormat mSimpleDateFormat = new SimpleDateFormat(format);
 			//当前月的第一天
-			c.set(GregorianCalendar.DAY_OF_MONTH, 1);
+			c.set(Calendar.DAY_OF_MONTH, 1);
 			strDate = mSimpleDateFormat.format(c.getTime());
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -106,17 +106,17 @@ public class AbListViewFooter extends LinearLayout {
 		footerProgressBar = new ProgressBar(context,null,android.R.attr.progressBarStyle);
 		footerProgressBar.setVisibility(View.GONE);
 		
-		LinearLayout.LayoutParams layoutParamsWW = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams layoutParamsWW = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		layoutParamsWW.gravity = Gravity.CENTER;
 		layoutParamsWW.width = 50;
 		layoutParamsWW.height = 50;
 		layoutParamsWW.rightMargin = 10;
 		footerView.addView(footerProgressBar,layoutParamsWW);
 		
-		LinearLayout.LayoutParams layoutParamsWW1 = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams layoutParamsWW1 = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		footerView.addView(footerTextView,layoutParamsWW1);
 		
-		LinearLayout.LayoutParams layoutParamsFW = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams layoutParamsFW = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		addView(footerView,layoutParamsFW);
 		
 		//获取View的高度
@@ -179,7 +179,7 @@ public class AbListViewFooter extends LinearLayout {
 	public void show() {
 		footerView.setVisibility(View.VISIBLE);
 		LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) footerView.getLayoutParams();
-		lp.height = LayoutParams.WRAP_CONTENT;
+		lp.height = android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 		footerView.setLayoutParams(lp);
 	}
 
@@ -200,6 +200,7 @@ public class AbListViewFooter extends LinearLayout {
 	 * @param color
 	 * @throws 
 	 */
+	@Override
 	public void setBackgroundColor(int color){
 		footerView.setBackgroundColor(color);
 	}

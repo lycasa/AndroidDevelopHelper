@@ -94,6 +94,7 @@ public class MyWebView extends Activity {
             /* TODO Android2.2及以上版本才能使用该方法 
              * 目前https://open.t.qq.com中存在http资源会引起sslerror，待网站修正后可去掉该方�?
              */
+			@Override
 			public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
                 if ((null != view.getUrl()) && (view.getUrl().startsWith("https://open.t.qq.com"))) {
                     handler.proceed();// 接受证书

@@ -44,8 +44,8 @@ public class Game2048MainActivity extends Activity implements OnClickListener {
 	animLayer = new AnimationLayer(this);
 	gameView = new GameView(this);
 	FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fff);
-	frameLayout.addView(animLayer, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-	frameLayout.addView(gameView, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+	frameLayout.addView(animLayer, new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
+	frameLayout.addView(gameView, new LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.MATCH_PARENT));
     }
 
     public Game2048MainActivity() {

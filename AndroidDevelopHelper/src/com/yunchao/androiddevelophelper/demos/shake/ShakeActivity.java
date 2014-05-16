@@ -54,7 +54,8 @@ public class ShakeActivity extends Activity{
 		mDrawer = (SlidingDrawer) findViewById(R.id.slidingDrawer1);
         mDrawerBtn = (Button) findViewById(R.id.handle);
         mDrawer.setOnDrawerOpenListener(new OnDrawerOpenListener()
-		{	public void onDrawerOpened()
+		{	@Override
+		public void onDrawerOpened()
 			{	
 				mDrawerBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.shake_report_dragger_down));
 				TranslateAnimation titleup = new TranslateAnimation(Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF,-1.0f);
@@ -65,7 +66,8 @@ public class ShakeActivity extends Activity{
 		});
 		 /* 设定SlidingDrawer被关闭的事件处理 */
 		mDrawer.setOnDrawerCloseListener(new OnDrawerCloseListener()
-		{	public void onDrawerClosed()
+		{	@Override
+		public void onDrawerClosed()
 			{	
 				mDrawerBtn.setBackgroundDrawable(getResources().getDrawable(R.drawable.shake_report_dragger_up));
 				TranslateAnimation titledn = new TranslateAnimation(Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF,-1.0f,Animation.RELATIVE_TO_SELF,0f);
@@ -77,15 +79,17 @@ public class ShakeActivity extends Activity{
 		loadSound() ;
 		mShakeListener = new ShakeListener(this);
         mShakeListener.setOnShakeListener(new OnShakeListener() {
+			@Override
 			public void onShake() {
 				//Toast.makeText(getApplicationContext(), "抱歉，暂时没有找到在同一时刻摇一摇的人。\n再试一次吧！", Toast.LENGTH_SHORT).show();
 				startAnim();  //开始 摇一摇手掌动画
 				mShakeListener.stop();
-				sndPool.play(soundPoolMap.get(0), (float) 1, (float) 1, 0, 0,(float) 1.2);
+				sndPool.play(soundPoolMap.get(0), 1, 1, 0, 0,(float) 1.2);
 				new Handler().postDelayed(new Runnable(){
+					@Override
 					public void run(){
 						//Toast.makeText(getApplicationContext(), "抱歉，暂时没有找到\n在同一时刻摇一摇的人。\n再试一次吧！", 500).setGravity(Gravity.CENTER,0,0).show();
-						sndPool.play(soundPoolMap.get(1), (float) 1, (float) 1, 0, 0,(float) 1.0);
+						sndPool.play(soundPoolMap.get(1), 1, 1, 0, 0,(float) 1.0);
 						Toast mtoast;
 						mtoast = Toast.makeText(getApplicationContext(),
 							     "抱歉，暂时没有找到\n在同一时刻摇一摇的人。\n再试一次吧！", 10);
@@ -106,6 +110,7 @@ public class ShakeActivity extends Activity{
 
 		sndPool = new SoundPool(2, AudioManager.STREAM_SYSTEM, 5);
 		new Thread() {
+			@Override
 			public void run() {
 				try {
 					soundPoolMap.put(

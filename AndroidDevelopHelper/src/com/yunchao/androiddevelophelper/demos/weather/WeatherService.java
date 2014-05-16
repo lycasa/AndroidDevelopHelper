@@ -1,5 +1,4 @@
 package com.yunchao.androiddevelophelper.demos.weather;
-
 import java.io.IOException;
 
 import org.xmlpull.v1.XmlPullParserException;
@@ -9,7 +8,7 @@ import android.content.Intent;
 import android.os.IBinder;
 
 public class WeatherService extends Service {
-	/**�˴�Ҫ��MainActivityһ��*/
+	/**此处要与MainActivity一致*/
 	private final String BROADCAST_ACTION = "vaint.wyt.broadcast";
 	private String city;
 	
@@ -19,11 +18,11 @@ public class WeatherService extends Service {
 	}
 	
 	/*
-	 * ÿ�ε���startService����ִ��onStart
+	 * 每次调用startService，将执行onStart
 	 */
 	@Override
 	public void onStart(final Intent intent, int startId) {
-		//����service����������ռ�����̣߳�����������뿪��һ���߳���ִ�к�ʱ����
+		//由于service开启后，依旧占用主线程，所以这里必须开启一个线程来执行耗时操作
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -32,7 +31,7 @@ public class WeatherService extends Service {
 				try {
 					weather = getWeather();
 				} catch (Exception e) {
-					//����ʱ,����ֵ�����null������Ϣ
+					//发生超时,返回值区别于null与正常信息
 					weather = new String[]{"timeOut"};
 					e.printStackTrace();
 				} 

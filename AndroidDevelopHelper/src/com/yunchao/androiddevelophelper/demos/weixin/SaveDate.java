@@ -19,7 +19,7 @@ public class SaveDate {
 	.getSharedPreferences("notekey", Context.MODE_PRIVATE);
 		Editor editor = preferences.edit();
 		editor.putString("token", token.getAccessToken());   //token
-		editor.putString("expiresTime", token.getExpiresIn()); //����ʱ��
+		editor.putString("expiresTime", token.getExpiresIn()); 
 		editor.putString("openid", token.getOpenid());  
 		editor.putString("opkey", token.getOpenkey());
 		editor.putString("key", token.getClientId());

@@ -136,7 +136,7 @@ public class AbListViewHeader extends LinearLayout {
 		headerProgressBar = new ProgressBar(context,null,android.R.attr.progressBarStyle);
 		headerProgressBar.setVisibility(View.GONE);
 		
-		LinearLayout.LayoutParams layoutParamsWW = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams layoutParamsWW = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		layoutParamsWW.gravity = Gravity.CENTER;
 		layoutParamsWW.width = 50;
 		layoutParamsWW.height = 50;
@@ -150,7 +150,7 @@ public class AbListViewHeader extends LinearLayout {
 		headTextLayout.setOrientation(LinearLayout.VERTICAL);
 		headTextLayout.setGravity(Gravity.CENTER_VERTICAL);
 		headTextLayout.setPadding(12,0,0,0);
-		LinearLayout.LayoutParams layoutParamsWW2 = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams layoutParamsWW2 = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		headTextLayout.addView(tipsTextview,layoutParamsWW2);
 		headTextLayout.addView(headerTimeView,layoutParamsWW2);
 		tipsTextview.setTextColor(Color.rgb(107, 107, 107));
@@ -158,7 +158,7 @@ public class AbListViewHeader extends LinearLayout {
 		tipsTextview.setTextSize(15);
 		headerTimeView.setTextSize(14);
 		
-		LinearLayout.LayoutParams layoutParamsWW3 = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams layoutParamsWW3 = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		layoutParamsWW3.gravity = Gravity.CENTER;
 		layoutParamsWW3.bottomMargin = 5;
 		layoutParamsWW3.topMargin = 5;
@@ -170,7 +170,7 @@ public class AbListViewHeader extends LinearLayout {
 		headerLayout.addView(headImage,layoutParamsWW3);
 		headerLayout.addView(headTextLayout,layoutParamsWW3);
 		
-		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(android.view.ViewGroup.LayoutParams.FILL_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 		lp.gravity = Gravity.BOTTOM;
 		//添加大布局
 		headerView.addView(headerLayout,lp);
@@ -317,6 +317,7 @@ public class AbListViewHeader extends LinearLayout {
 	 * @param color
 	 * @throws 
 	 */
+	@Override
 	public void setBackgroundColor(int color){
 		headerView.setBackgroundColor(color);
 	}

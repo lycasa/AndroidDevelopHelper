@@ -101,9 +101,22 @@ public class PluginScrollView extends RelativeLayout{
 		for(int i=0;i<testList.size();i++){
 			final int j = i;
 			Button mbutton = new Button(context);
-			mbutton.setText("Button"+i);
+			if(i==0){
+				mbutton.setText(context.getString(R.string.apps));
+			}else if(i==1){
+				mbutton.setText(context.getString(R.string.games));
+			}else if(i==2){
+				mbutton.setText(context.getString(R.string.framework));
+			}else if(i==3){
+				mbutton.setText(context.getString(R.string.androidutils));
+			}else if(i==4){
+				mbutton.setText(context.getString(R.string.moreinfo));
+			}
+			else{
+				mbutton.setText("Button"+i);
+			}
 			mbutton.setBackgroundResource(R.drawable.btn_scrollview_plugin_unselected);
-			LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+			LayoutParams params = new LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT,android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
 			mbutton.setLayoutParams(params);
 			mbutton.setOnClickListener(new OnClickListener() {
 				

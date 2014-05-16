@@ -27,4 +27,9 @@ public class Conf {
     
     
     public static final String DATA_FILE_PATH = "/mnt/ext_sdcard/data";
+    //assets file path
+    public static final String ASSETS_APPS_PATH = "/assets/appdatas";
+    public static final String ASSETS_GAMES_PATH = "/assets/gamedatas";
+    public static final String ASSETS_FRAM_PATH = "/assets/framworkdatas";
+    public static final String ASSETS_UTILS_PATH = "/assets/utilsdatas";
 }

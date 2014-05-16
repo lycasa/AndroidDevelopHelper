@@ -1,8 +1,11 @@
 <resources>
 
-    <string name="app_name">AndroidDevelopHelper</string>
+    <string name="app_name">安卓开发助手</string>
     <string name="androidutils">工具</string>
     <string name="moreinfo">我</string>
+    <string name="apps">应用</string>
+    <string name="games">游戏</string>
+    <string name="framework">框架</string>
     
     <!-- 二维码 -->
     <string name="scanandacan">扫一扫</string>
@@ -18,7 +21,6 @@
     <!-- weixin -->
     <string name="hello_world">Hello world!</string>
     <!-- weather -->
-    <string name="app_name">天气</string>
     <string name="chooseCity_name">选择城市</string>
     <string name="setup_name">设置</string>
     <string name="searchBn">查   询</string>

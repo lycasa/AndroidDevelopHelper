@@ -3,7 +3,6 @@ package com.yunchao.androiddevelophelper.views;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,13 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.baidu.frontia.Frontia;
+import com.baidu.frontia.api.FrontiaAuthorization.MediaType;
 import com.baidu.frontia.api.FrontiaSocialShare;
+import com.baidu.frontia.api.FrontiaSocialShare.FrontiaTheme;
 import com.baidu.frontia.api.FrontiaSocialShareContent;
 import com.baidu.frontia.api.FrontiaSocialShareListener;
-import com.baidu.frontia.api.FrontiaAuthorization.MediaType;
-import com.baidu.frontia.api.FrontiaSocialShare.FrontiaTheme;
 import com.yunchao.androiddevelophelper.R;
 import com.yunchao.androiddevelophelper.global.Conf;
 import com.yunchao.androiddevelophelper.http.ImageService;

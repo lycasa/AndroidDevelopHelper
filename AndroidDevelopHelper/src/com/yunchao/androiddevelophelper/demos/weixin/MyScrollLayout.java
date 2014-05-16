@@ -1,23 +1,20 @@
 package com.yunchao.androiddevelophelper.demos.weixin;
 
-import android.R.bool;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
-import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.View.MeasureSpec;
 import android.widget.Scroller;
 
 public class MyScrollLayout extends ViewGroup{
 
     private static final String TAG = "ScrollLayout";      
-    private VelocityTracker mVelocityTracker;  			// 用于判断甩动手势    
+    private VelocityTracker mVelocityTracker;  			
     private static final int SNAP_VELOCITY = 400;        
-    private Scroller  mScroller;						// 滑动控制噄1�7	
+    private Scroller  mScroller;						
     private int mCurScreen;    						    
 	private int mDefaultScreen = 0;    						 
     private float mLastMotionX;       
@@ -129,7 +126,7 @@ public class MyScrollLayout extends ViewGroup{
 	            
 	        switch (action) {    
 	        case MotionEvent.ACTION_DOWN: 	
-	        	System.out.println("������onTouchEvent");
+	        	System.out.println("父类点击onTouchEvent");
 	        	  Log.i("", "onTouchEvent  ACTION_DOWN");	        	  
 	        	if (mVelocityTracker == null) {    
 			            mVelocityTracker = VelocityTracker.obtain();    
@@ -143,7 +140,7 @@ public class MyScrollLayout extends ViewGroup{
 	            break;    
 	                
 	        case MotionEvent.ACTION_MOVE:  
-	        	System.out.println("���໬��onTouchEvent");
+	        	System.out.println("父类滑动onTouchEvent");
 		           int deltaX = (int)(mLastMotionX - x);	           
 	        	   if (IsCanMove(deltaX))
 	        	   {
@@ -157,7 +154,7 @@ public class MyScrollLayout extends ViewGroup{
          
 	           break;    	                
 	        case MotionEvent.ACTION_UP:       
-	        	System.out.println("����ſ�onTouchEvent");
+	        	System.out.println("父类放开onTouchEvent");
 	        	int velocityX = 0;
 	            if (mVelocityTracker != null)
 	            {
@@ -192,19 +189,19 @@ public class MyScrollLayout extends ViewGroup{
 	public boolean onInterceptTouchEvent(MotionEvent event) {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN: 
-			System.out.println("������onInterceptTouchEvent");
+			System.out.println("父类点击onInterceptTouchEvent");
 			if(isPass){
 				return true;
 			}
 			break;
 		case MotionEvent.ACTION_MOVE: 
-			System.out.println("���໬��onInterceptTouchEvent");
+			System.out.println("父类滑动onInterceptTouchEvent");
 			if(isPass){
 				return true;
 			}
 			break;
 		case MotionEvent.ACTION_UP:
-			System.out.println("����ſ�onInterceptTouchEvent");
+			System.out.println("父类放开onInterceptTouchEvent");
 			break;
 		}
 		return super.onInterceptTouchEvent(event);
@@ -216,16 +213,16 @@ public class MyScrollLayout extends ViewGroup{
 		case MotionEvent.ACTION_DOWN: 
 			mLastMotionX = event.getX();	           
             mLastMotionY = event.getY();
-			System.out.println("������dispatchTouchEvent");
+			System.out.println("父类点击dispatchTouchEvent");
 			break;
 		case MotionEvent.ACTION_MOVE: 
 			System.out.println(Math.abs(event.getX()- mLastMotionX));
 			System.out.println(Math.abs(event.getY()- mLastMotionY));
 			double tanNum = Math.atan(Math.abs(event.getY()-mLastMotionY)/Math.abs(event.getX()- mLastMotionX));
 			double retote = tanNum/3.14*180;
-			System.out.println("�Ƕ�:"+retote);
+			System.out.println("角度:"+retote);
 			if (retote<45) {
-				System.out.println("---------���໬��dispatchTouchEvent");
+				System.out.println("---------父类滑动dispatchTouchEvent");
 				isPass= true;
 			}else{
 				isPass = false;
@@ -234,7 +231,7 @@ public class MyScrollLayout extends ViewGroup{
 			System.out.println("***************"+isPass);
 			break;
 		case MotionEvent.ACTION_UP:
-			System.out.println("����ſ�dispatchTouchEvent");
+			System.out.println("父类放开dispatchTouchEvent");
 			break;
 		}
 		return super.dispatchTouchEvent(event);

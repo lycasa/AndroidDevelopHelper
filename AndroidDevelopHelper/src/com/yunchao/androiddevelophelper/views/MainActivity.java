@@ -1,8 +1,6 @@
 package com.yunchao.androiddevelophelper.views;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,13 +27,15 @@ import com.yunchao.androiddevelophelper.adapters.Main_ListViewAdapter;
 import com.yunchao.androiddevelophelper.adapters.ViewPagerAdapter;
 import com.yunchao.androiddevelophelper.customviews.AbPullListView;
 import com.yunchao.androiddevelophelper.demos.light.LightActivity;
+import com.yunchao.androiddevelophelper.demos.news.News_MainActivity;
 import com.yunchao.androiddevelophelper.demos.shake.ShakeActivity;
 import com.yunchao.androiddevelophelper.demos.tts.TTSDemoActivity;
+import com.yunchao.androiddevelophelper.demos.weather.Weather_MainActivity;
 import com.yunchao.androiddevelophelper.demos.weixin.IndexActivity;
 import com.yunchao.androiddevelophelper.demos.zxing.ZXingMainActivity;
-import com.yunchao.androiddevelophelper.games.game2048.Game2048MainActivity;
 import com.yunchao.androiddevelophelper.global.Conf;
 import com.yunchao.androiddevelophelper.listener.AbOnListViewListener;
+import com.yunchao.androiddevelophelper.utils.BaseUtils;
 
 public class MainActivity extends Activity implements OnClickListener,
 		OnItemClickListener {
@@ -50,7 +50,7 @@ public class MainActivity extends Activity implements OnClickListener,
 	private ViewPager mViewPager;  
 	private ViewPagerAdapter viewPagerAdapter;
 	List<View> testList;
-	private View android_utils_main, button2layout, button3layout, login_main;
+	private View android_utils_main, gamelayout, button3layout, login_main;
 	private final static String TAG = "MainActivity";
 
 	@Override
@@ -63,18 +63,20 @@ public class MainActivity extends Activity implements OnClickListener,
 		registerReadFileEndBroadcastReceiver();
 		mlayoutinflater = getLayoutInflater();
 		android_utils_main = mlayoutinflater.inflate(
-				R.layout.android_utils_main, null);
+				R.layout.apps_main, null);
 	/*	ReadFileAsyncTask task = new ReadFileAsyncTask(MainActivity.this);
 		task.execute();*/
 		try {
-			mdata=getFileData();
+			//mdata=getFileData(0);
+			mdata=BaseUtils.getFileData(Conf.ASSETS_APPS_PATH, mContext);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		//initData();
 		initview();
-		button2layout = mlayoutinflater.inflate(R.layout.button2layout, null);
+		//gamelayout = mlayoutinflater.inflate(R.layout.games_main, null);
+		gamelayout = new GamesMainView(mContext);
 		button3layout = mlayoutinflater.inflate(R.layout.button3layout, null);
 		login_main = mlayoutinflater.inflate(R.layout.login_main, null);
 		preInit();
@@ -99,9 +101,9 @@ public class MainActivity extends Activity implements OnClickListener,
 	private void preInit() {
 		testList = new ArrayList<View>();
 		testList.add(android_utils_main);
-		testList.add(button2layout);
+		testList.add(gamelayout);
 		testList.add(button3layout);
-		testList.add(button2layout);
+		testList.add(gamelayout);
 		testList.add(login_main);
 	}
 	
@@ -186,7 +188,7 @@ public class MainActivity extends Activity implements OnClickListener,
 
 			middle_content_container.removeAllViews();
 			View android_utils_main = mlayoutinflater.inflate(
-					R.layout.android_utils_main, null);
+					R.layout.apps_main, null);
 			middle_content_container.addView(android_utils_main);
 			initData();
 			initview();
@@ -238,19 +240,31 @@ public class MainActivity extends Activity implements OnClickListener,
 			shakeintent.putExtra("str", str);
 			startActivity(shakeintent);
 			break;
-		case 4:
+	/*	case 4:
 			Intent game2048intent = new Intent(this, Game2048MainActivity.class);
 			game2048intent.putExtra("str", str);
 			startActivity(game2048intent);
-			break;
-		case 5:
+			break;*/
+		case 4:
 			Intent lightintent = new Intent(this, LightActivity.class);
 			lightintent.putExtra("str", str);
 			startActivity(lightintent);
 			break;
-		case 6:
+		case 5:
 			Intent weixinintent = new Intent(this, IndexActivity.class);
 			startActivity(weixinintent);
+			break;
+		case 6:
+			Intent weibointent = new Intent(this, IndexActivity.class);
+			startActivity(weibointent);
+			break;
+		case 7:
+			Intent weatherintent = new Intent(this, Weather_MainActivity.class);
+			startActivity(weatherintent);
+			break;
+		case 10:
+			Intent newsintent = new Intent(this, News_MainActivity.class);
+			startActivity(newsintent);
 			break;
 		/*case 2:
 			Intent wintent = new Intent(this, ListView_Show_Activity.class);
@@ -273,7 +287,7 @@ public class MainActivity extends Activity implements OnClickListener,
 			@Override
 			public void onPageSelected(int arg0) {
 				// TODO Auto-generated method stub
-				Log.d("k", "onPageSelected - " + arg0);
+				Log.d("mkkkk", "onPageSelected - " + arg0);
 				mPluginScrollView.buttonSelected(arg0);
 				mViewPager.setCurrentItem(arg0);
 			}
@@ -281,13 +295,13 @@ public class MainActivity extends Activity implements OnClickListener,
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				// TODO Auto-generated method stub
-				Log.d("k", "onPageScrolled - " + arg0);
+				Log.d("mkkkk", "onPageScrolled - " + arg0);
 			}
 
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
 				// TODO Auto-generated method stub
-				Log.d("k", "onPageScrollStateChanged - " + arg0);
+				Log.d("mkkkk", "onPageScrollStateChanged - " + arg0);
 				// 状态有三个0空闲，1是增在滑行中，2目标加载完毕
 			}
 		});
@@ -320,17 +334,30 @@ public class MainActivity extends Activity implements OnClickListener,
 	        
 	    }
 	};
+	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		unregisterReceiver(rBroadcastReceiver);
 	};
 	
-	public List<String> getFileData() throws IOException{
+/*	public List<String> getFileData(int pagenum) throws IOException{
 		ArrayList<String> info = null;
-		 InputStream abpath = getClass().getResourceAsStream("/assets/data");
-		 String path = new String(InputStreamToByte(abpath));
+		InputStream assetsfilepath = null;
+		switch (pagenum) {
+		case 0:
+			assetsfilepath = getClass().getResourceAsStream("/assets/appdatas");
+			break;
+		case 1:
+			assetsfilepath = getClass().getResourceAsStream("/assets/gamedatas");
+			break;
+
+		default:
+			break;
+		}
+		// InputStream abpath = getClass().getResourceAsStream("/assets/data");
+		 String path = new String(InputStreamToByte(assetsfilepath));
 		//File file=new File(Conf.DATA_FILE_PATH);
-		/*File file=new File(path);
+		File file=new File(path);
 		if (file.exists() && file.isFile()) {
 			try {
 				String buffer = "";
@@ -345,7 +372,7 @@ public class MainActivity extends Activity implements OnClickListener,
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}*/
+		}
 		String paths[] = path.split("\n");
 		info = new ArrayList<String>();
 		for(int i=0;i<paths.length;i++){
@@ -362,5 +389,5 @@ public class MainActivity extends Activity implements OnClickListener,
         byte imgdata[] = bytestream.toByteArray();
         bytestream.close();
         return imgdata;
-    }
+    }*/
 }

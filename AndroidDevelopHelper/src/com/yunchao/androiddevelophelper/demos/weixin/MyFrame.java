@@ -7,11 +7,11 @@ import android.widget.FrameLayout;
 
 public class MyFrame extends FrameLayout {
 	/**
-	 * ��ָ����X�����
+	 * 手指按下X的坐标
 	 */
 	private int downY;
 	/**
-	 * ��ָ����Y�����
+	 * 手指按下Y的坐标
 	 */
 	private int downX;
 	private boolean isSlide = false;
@@ -20,38 +20,38 @@ public class MyFrame extends FrameLayout {
 	}
 
 	/**
-	 * ���������϶�ListView item���߼�
+	 * 处理我们拖动ListView item的逻辑
 	 */
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN: 
-			System.out.println("������onTouchEvent");
+			System.out.println("子类点击onTouchEvent");
 			break;
 		case MotionEvent.ACTION_MOVE: 
-			System.out.println("���໬��onTouchEvent");
+			System.out.println("子类滑动onTouchEvent");
 			break;
 		case MotionEvent.ACTION_UP:
-			System.out.println("����ſ�onTouchEvent");
+			System.out.println("子类放开onTouchEvent");
 			break;
 		}
 		return super.onTouchEvent(event);
 	}
 
 	/**
-	 * �ַ��¼�����Ҫ�������жϵ�������Ǹ�item, �Լ�ͨ��postDelayed��������Ӧ���һ����¼�
+	 * 分发事件，主要做的是判断点击的是那个item, 以及通过postDelayed来设置响应左右滑动事件
 	 */
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN: 
-			System.out.println("������dispatchTouchEvent");
+			System.out.println("子类点击dispatchTouchEvent");
 			break;
 		case MotionEvent.ACTION_MOVE: 
-			System.out.println("���໬��dispatchTouchEvent");
+			System.out.println("子类滑动dispatchTouchEvent");
 			break;
 		case MotionEvent.ACTION_UP:
-			System.out.println("����ſ�dispatchTouchEvent");
+			System.out.println("子类放开dispatchTouchEvent");
 			break;
 		}
 		return super.dispatchTouchEvent(event);
@@ -61,13 +61,13 @@ public class MyFrame extends FrameLayout {
 //	public boolean onInterceptTouchEvent(MotionEvent event) {
 //		switch (event.getAction()) {
 //		case MotionEvent.ACTION_DOWN: 
-//			System.out.println("������onInterceptTouchEvent");
+//			System.out.println("子类点击onInterceptTouchEvent");
 //			break;
 //		case MotionEvent.ACTION_MOVE: 
-//			System.out.println("���໬��onInterceptTouchEvent");
+//			System.out.println("子类滑动onInterceptTouchEvent");
 //			break;
 //		case MotionEvent.ACTION_UP:
-//			System.out.println("����ſ�onInterceptTouchEvent");
+//			System.out.println("子类放开onInterceptTouchEvent");
 //			break;
 //		}
 //		return super.onInterceptTouchEvent(event);

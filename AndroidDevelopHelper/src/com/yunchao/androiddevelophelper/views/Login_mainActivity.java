@@ -2,6 +2,13 @@ package com.yunchao.androiddevelophelper.views;
 
 import java.util.ArrayList;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.TextView;
+
 import com.baidu.frontia.Frontia;
 import com.baidu.frontia.FrontiaUser;
 import com.baidu.frontia.api.FrontiaAuthorization;
@@ -9,13 +16,6 @@ import com.baidu.frontia.api.FrontiaAuthorization.MediaType;
 import com.baidu.frontia.api.FrontiaAuthorizationListener.AuthorizationListener;
 import com.baidu.frontia.api.FrontiaAuthorizationListener.UserInfoListener;
 import com.yunchao.androiddevelophelper.R;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
 
 public class Login_mainActivity extends Activity implements OnClickListener{
 	private Button baidu_login,baidu_cancel,baidu_status,baidu_userinfo;
