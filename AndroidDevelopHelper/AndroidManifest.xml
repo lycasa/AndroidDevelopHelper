@@ -138,6 +138,12 @@
         <activity
             android:name="com.yunchao.androiddevelophelper.demos.news.News_ShowDescriptionActivity" >
         </activity>
+        <activity
+            android:name="com.yunchao.androiddevelophelper.sourceviews.SourceViewAcitivity" >
+        </activity>
+        <activity
+            android:name="com.yunchao.androiddevelophelper.sourceviews.AnalogclockActivity" >
+        </activity>
     </application>
 
 </manifest>

@@ -35,6 +35,7 @@ import com.yunchao.androiddevelophelper.demos.weixin.IndexActivity;
 import com.yunchao.androiddevelophelper.demos.zxing.ZXingMainActivity;
 import com.yunchao.androiddevelophelper.global.Conf;
 import com.yunchao.androiddevelophelper.listener.AbOnListViewListener;
+import com.yunchao.androiddevelophelper.sourceviews.SourceViewAcitivity;
 import com.yunchao.androiddevelophelper.utils.BaseUtils;
 
 public class MainActivity extends Activity implements OnClickListener,
@@ -62,21 +63,23 @@ public class MainActivity extends Activity implements OnClickListener,
 		mContext = this;
 		registerReadFileEndBroadcastReceiver();
 		mlayoutinflater = getLayoutInflater();
-		android_utils_main = mlayoutinflater.inflate(
-				R.layout.apps_main, null);
+		initAppLayout();
+		/*android_utils_main = mlayoutinflater.inflate(
+				R.layout.apps_main, null);*/
 	/*	ReadFileAsyncTask task = new ReadFileAsyncTask(MainActivity.this);
 		task.execute();*/
-		try {
+		/*try {
 			//mdata=getFileData(0);
 			mdata=BaseUtils.getFileData(Conf.ASSETS_APPS_PATH, mContext);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		//initData();
-		initview();
+		//initview();
 		//gamelayout = mlayoutinflater.inflate(R.layout.games_main, null);
-		gamelayout = new GamesMainView(mContext);
+		gamelayout = new GamesMainView(mContext,mlayoutinflater);
+		//initGameLayout();
 		button3layout = mlayoutinflater.inflate(R.layout.button3layout, null);
 		login_main = mlayoutinflater.inflate(R.layout.login_main, null);
 		preInit();
@@ -84,6 +87,32 @@ public class MainActivity extends Activity implements OnClickListener,
 
 	}
 
+	private void initAppLayout(){
+		android_utils_main = mlayoutinflater.inflate(
+				R.layout.apps_main, null);
+		try {
+			//mdata=getFileData(0);
+			mdata=BaseUtils.getFileData(Conf.ASSETS_APPS_PATH, mContext);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		initview(android_utils_main);
+		
+	}
+	
+	private void initGameLayout(){
+		gamelayout = mlayoutinflater.inflate(R.layout.apps_main, null);
+		try {
+			//mdata=getFileData(0);
+			mdata=BaseUtils.getFileData(Conf.ASSETS_GAMES_PATH, mContext);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		initview(gamelayout);
+	}
+	
 	public void initView() {
 		mViewPager = (ViewPager) findViewById(R.id.viewpagerLayout);
 		viewPagerAdapter = new ViewPagerAdapter();
@@ -116,8 +145,8 @@ public class MainActivity extends Activity implements OnClickListener,
 		}
 	}
 
-	private void initview() {
-		lv_androidutils_text = (AbPullListView) android_utils_main
+	private void initview(View mview) {
+		lv_androidutils_text = (AbPullListView) mview
 				.findViewById(R.id.lv_androidutils_text);
 		mListViewAdapter = new Main_ListViewAdapter(mdata, mContext);
 		lv_androidutils_text.setAdapter(mListViewAdapter);
@@ -191,7 +220,7 @@ public class MainActivity extends Activity implements OnClickListener,
 					R.layout.apps_main, null);
 			middle_content_container.addView(android_utils_main);
 			initData();
-			initview();
+			initview(android_utils_main);
 			break;
 		case R.id.btn_2:
 
@@ -266,11 +295,11 @@ public class MainActivity extends Activity implements OnClickListener,
 			Intent newsintent = new Intent(this, News_MainActivity.class);
 			startActivity(newsintent);
 			break;
-		/*case 2:
-			Intent wintent = new Intent(this, ListView_Show_Activity.class);
-			mintent.putExtra("str", str);
-			startActivity(mintent);
-			break;*/
+		case 11:
+			Intent sourceviewintent = new Intent(this, SourceViewAcitivity.class);
+			startActivity(sourceviewintent);
+			break;
+
 
 		default:
 			Intent nintent = new Intent(this, Other_Activity_Show.class);

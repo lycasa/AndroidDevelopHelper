@@ -23,10 +23,11 @@ public class GamesMainView extends ViewGroup implements OnItemClickListener {
 	private List<String> mdata = new ArrayList<String>();
 	private AbPullListView lv_games;
 	private Main_ListViewAdapter mListViewAdapter;
-	public GamesMainView(Context context) {
+	private View gamelayout;
+	public GamesMainView(Context context,LayoutInflater mLayoutInflater) {
 		super(context);
 		mcontext = context;
-		LayoutInflater.from(mcontext).inflate(R.layout.games_main, this, true);
+		gamelayout = mLayoutInflater.inflate(R.layout.games_main, null);
 		initdata();
 		initview();
 	}
@@ -56,7 +57,7 @@ public class GamesMainView extends ViewGroup implements OnItemClickListener {
 	private void initview() {
 	/*	lv_androidutils_text = (AbPullListView) this
 				.findViewById(R.id.lv_androidutils_text);*/
-		lv_games = (AbPullListView) findViewById(R.id.lv_games);
+		lv_games = (AbPullListView) gamelayout.findViewById(R.id.lv_games);
 		mListViewAdapter = new Main_ListViewAdapter(mdata, mcontext);
 		lv_games.setAdapter(mListViewAdapter);
 		lv_games.setOnItemClickListener(this);
