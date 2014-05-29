@@ -3,6 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    <TextView 
+        android:id="@+id/tv_help"
+          android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        
+        android:text="1AnalogClock,2DigitalClock,3TextClock,4ZoomButton,5ZoomControls"
+        />
     <AnalogClock 
         android:id="@+id/analogclock"
          android:layout_width="match_parent"
@@ -21,5 +28,20 @@
     android:gravity="center"
     android:text="TextClock"
         />
-
+    <ZoomButton 
+         android:id="@+id/zoombutton"
+         android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:src="@drawable/a_0"
+          
+          
+        />
+    <ZoomControls 
+        android:id="@+id/zoomcontrols"
+         android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+        
+        />
+        
+    
 </LinearLayout>
