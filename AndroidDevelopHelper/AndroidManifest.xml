@@ -146,6 +146,15 @@
         <activity
             android:name="com.yunchao.androiddevelophelper.sourceviews.AnalogclockActivity" >
         </activity>
+        <activity
+            android:name="com.yunchao.androiddevelophelper.sourceviews.SurfaceViewActivity" >
+        </activity>
+        <activity
+            android:name="com.yunchao.androiddevelophelper.sourceviews.GLSurfaceViewActivity" >
+        </activity>
+        <activity
+            android:name="com.yunchao.androiddevelophelper.animation.Animation_MainActivity" >
+        </activity>
     </application>
 
 </manifest>

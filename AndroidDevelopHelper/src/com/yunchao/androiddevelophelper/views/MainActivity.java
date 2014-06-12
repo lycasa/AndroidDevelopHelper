@@ -25,6 +25,7 @@ import com.baidu.frontia.Frontia;
 import com.yunchao.androiddevelophelper.R;
 import com.yunchao.androiddevelophelper.adapters.Main_ListViewAdapter;
 import com.yunchao.androiddevelophelper.adapters.ViewPagerAdapter;
+import com.yunchao.androiddevelophelper.animation.Animation_MainActivity;
 import com.yunchao.androiddevelophelper.customviews.AbPullListView;
 import com.yunchao.androiddevelophelper.demos.light.LightActivity;
 import com.yunchao.androiddevelophelper.demos.news.News_MainActivity;
@@ -298,6 +299,10 @@ public class MainActivity extends Activity implements OnClickListener,
 		case 11:
 			Intent sourceviewintent = new Intent(this, SourceViewAcitivity.class);
 			startActivity(sourceviewintent);
+			break;
+		case 12:
+			Intent animationintent = new Intent(this, Animation_MainActivity.class);
+			startActivity(animationintent);
 			break;
 
 
