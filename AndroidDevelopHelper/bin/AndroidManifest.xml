@@ -153,6 +153,9 @@
             android:name="com.yunchao.androiddevelophelper.sourceviews.GLSurfaceViewActivity" >
         </activity>
         <activity
+            android:name="com.yunchao.androiddevelophelper.sourceviews.TextViewActivity" >
+        </activity>
+        <activity
             android:name="com.yunchao.androiddevelophelper.animation.Animation_MainActivity" >
         </activity>
     </application>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+ <ScrollView 
+      android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     >
+     <LinearLayout 
+          android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+         >
+  <TextView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="-----------CheckBox-------------------"
+    /> 
+<CheckBox 
+    android:id="@+id/cb_show"
+      android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:checked="false"
+    android:text="已婚"/>
+    
+<CheckBox 
+    android:id="@+id/cb_show1"
+      android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:checked="false"
+    android:text="80后"
+    
+    />
+<TextView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="-----------RadioButton-------------------"
+    
+    />
+<RadioGroup
+      android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+     >
+ <RadioButton 
+       android:id="@+id/rb_show"
+      android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="70后"
+     />
+ <RadioButton 
+       android:id="@+id/rb_show1"
+      android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="90后"
+     />
+ </RadioGroup>
+ <TextView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="-------------Switch-----------------"
+    />
+ <Switch 
+      android:id="@+id/switch_show"
+      android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textOn="开"
+    android:textOff="关"
+     />
+  <TextView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="----------ToggleButton--------------------"
+    />
+  <ToggleButton 
+      android:id="@+id/tg_show"
+      android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+      />
+  <TextView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="----------CheckedTextView--------------------"
+    />
+  <LinearLayout 
+       android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+      
+      >
+      <CheckedTextView 
+          android:id="@+id/ctv_show1"
+            android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+    android:checked="true"
+    android:text="text1"
+          
+          />
+      <CheckedTextView 
+            android:id="@+id/ctv_show2"
+            android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+    android:text="text2"
+          
+          />
+      
+  </LinearLayout>
+    <TextView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="----------Chronometer--------------------"/>
+      <Chronometer 
+          android:id="@+id/chronometer"
+            android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:format=""
+           
+           /> 
+    <LinearLayout 
+         android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+        >
+     
+        <Button 
+              android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="开始计时"
+    android:onClick="onstart"
+            />
+        <Button 
+              android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="停止计时"
+    android:onClick="onstop"
+            />
+        <Button 
+              android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="重置"
+    android:onClick="onreset"
+            />
+    </LinearLayout>
+    
+     <TextView 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="----------AutoCompleteTextView--------------------"/>
+     <LinearLayout
+          android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+          >
+    <AutoCompleteTextView 
+        android:id="@+id/actv_content"
+          android:layout_width="0dp"
+    android:layout_height="wrap_content"
+        android:layout_weight="3"
+        />
+    <Button 
+        android:id="@+id/btn_search"
+         android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:text="search"
+        />
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

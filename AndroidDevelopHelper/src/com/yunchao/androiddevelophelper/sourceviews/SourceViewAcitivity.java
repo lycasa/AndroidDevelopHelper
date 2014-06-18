@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.yunchao.androiddevelophelper.R;
 
 public class SourceViewAcitivity extends Activity implements OnClickListener{
-	private Button analogclock,btn_surfaceview,btn_glsurfaceview;
+	private Button analogclock,btn_surfaceview,btn_glsurfaceview,btn_textview;
 	@Override
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,8 @@ public class SourceViewAcitivity extends Activity implements OnClickListener{
 		btn_surfaceview.setOnClickListener(this);
 		btn_glsurfaceview = (Button) findViewById(R.id.btn_glsurfaceview);
 		btn_glsurfaceview.setOnClickListener(this);
+		btn_textview = (Button) findViewById(R.id.btn_textview);
+		btn_textview.setOnClickListener(this);
 	
 	}
 
@@ -47,6 +49,10 @@ public class SourceViewAcitivity extends Activity implements OnClickListener{
 		case R.id.btn_glsurfaceview:
 			Intent glsurfaceviewintent = new Intent(this, GLSurfaceViewActivity.class);
 			startActivity(glsurfaceviewintent);
+			break;
+		case R.id.btn_textview:
+			Intent textviewintent = new Intent(this, TextViewActivity.class);
+			startActivity(textviewintent);
 			break;
 			
 		default:

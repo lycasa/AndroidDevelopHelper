@@ -9,18 +9,24 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="analogclock  imageview" />
+        android:text="AnalogClock  ImageView" />
     <Button
         android:id="@+id/btn_surfaceview"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="surfaceview" />
+        android:text="SurfaceView" />
     <Button
         android:id="@+id/btn_glsurfaceview"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="glsurfaceview" />
+        android:text="GLSurfaceView" />
+    <Button
+        android:id="@+id/btn_textview"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
 </LinearLayout>
